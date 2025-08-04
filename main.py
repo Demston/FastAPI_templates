@@ -19,12 +19,12 @@ books = [
 ]
 
 
-@app.get('/books', summary='Получить ниги', tags=['Получить ниги 📚'])
+@app.get('/books', summary='Получить книги', tags=['Получить книги 📚'])
 def read_books():
     return books
 
 
-@app.get('/books/{book_id}', summary='Получить нигу', tags=['нига'])
+@app.get('/books/{book_id}', summary='Получить книгу', tags=['нига'])
 def get_book(book_id: int):
     for b in books:
         if b['id'] == book_id:
@@ -37,7 +37,7 @@ class NewBook(BaseModel):
     author: str
 
 
-@app.post('/books', summary='Добавить ниги', tags=['Добавить ниги 📚'])
+@app.post('/books', summary='Добавить ниги', tags=['Добавить книги 📚'])
 def create_book(new_book: NewBook):
     books.append({'id': len(books)+1,
                   'title': new_book.title,
